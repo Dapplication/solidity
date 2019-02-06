@@ -856,13 +856,11 @@ bool CommandLineInterface::processInput()
 				return false;
 			}
 		}
-		if (optimize && inputLanguage == Input::Assembly)
+		if (optimize && inputLanguage != Input::StrictAssembly)
 		{
 			serr() <<
-				"Optimizer cannot be used for loose assembly. Use --" <<
+				"Optimizer cannot be used for both loose assembly and Yul. Use --" <<
 				g_strStrictAssembly <<
-				" or --" <<
-				g_strYul <<
 				"." <<
 				endl;
 			return false;
